@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/resports_informal_vertical"
+	android:background="@color/michigan_blue"
+	android:gravity="center" >
+</bitmap>
+<!-- From: file:/C:/Users/Austin/Desktop/recsports-android-studio/app/src/main/res/drawable-mdpi/recsports_back.xml -->

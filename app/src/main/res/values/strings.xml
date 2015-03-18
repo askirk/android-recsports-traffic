@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">UMRecSports</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="choosegym_array">
+        <item>CCRB</item>
+        <item>IMSB</item>
+        <item>NCRB</item>
+    </string-array>
+
+    <string name="welcome_msg">Beat the rush.</string>
+    <string name="submit">Go</string>
+    <string name="hour">HOUR</string>
+    <string name="day">DAY</string>
+    <string name="gym">GYM</string>
+    <string name="gym_prompt">Choose a gym</string>
+
+    <string-array name="gym_array">
+        <item>CCRB</item>
+        <item>IMSB</item>
+        <item>NCRB</item>
+    </string-array>
+
+    <string name="day_prompt">What day?</string>
+
+    <string-array name="day_array">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+</resources>

@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.umrecsports"
+        minSdkVersion 14
+        targetSdkVersion 21
+    }
+
+    buildscript {
+        repositories {
+            jcenter()
+        }
+    }
+
+    buildTypes {
+        debug{
+            debuggable true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    repositories {
+        maven {
+            url  "http://dl.bintray.com/microsoftazuremobile/SDK"
+        }
+    }
+}
+
+dependencies {
+    compile "com.android.support:support-v4:21.0.3"
+    compile "com.android.support:appcompat-v7:21.0.3"
+    compile "com.androidplot:androidplot-core:0.6.1"
+    compile "com.microsoft.azure:azure-mobile-services-android-sdk:2.0-beta"
+    compile files('libs/GraphView-4.0.0.jar')
+    compile files('libs/opencsv-3.2.jar')
+}
