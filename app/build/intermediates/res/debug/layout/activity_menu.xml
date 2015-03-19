@@ -63,4 +63,4 @@
         android:layout_alignLeft="@+id/day_spinner"
         android:layout_alignStart="@+id/day_spinner" />
 
-</RelativeLayout><!-- From: file:/C:/Users/Austin/Desktop/recsports-android-studio/app/src/main/res/layout/activity_menu.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/Austin/Documents/GitHub/android-recsports-traffic/app/src/main/res/layout/activity_menu.xml -->

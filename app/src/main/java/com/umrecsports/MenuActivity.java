@@ -72,7 +72,7 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
         public int sunday;
     }
 
-    private int monday_swipes[] = new int[24];
+    private int day_swipes[] = new int[24];
     private XYPlot plot;
 
     MobileServiceTable<CCRBSwipes> mToDoTable;
@@ -83,8 +83,9 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
         setContentView(R.layout.activity_menu);
 
         submitBtn = (Button) findViewById(R.id.submitbtn);
-        submitBtn.setVisibility(View.INVISIBLE);
-        submitBtn.setEnabled(false);
+
+        gym_spinner = (Spinner) findViewById(R.id.choosegym_spinner);
+        day_spinner = (Spinner) findViewById(R.id.day_spinner);
         
         page = new UserTimeSelection();
 
@@ -99,27 +100,6 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
             e.printStackTrace();
         }
 
-        try {
-            mToDoTable.execute(new TableQueryCallback<CCRBSwipes>() {
-                public void onCompleted(List<CCRBSwipes> result, int count,
-                                        Exception exception, ServiceFilterResponse response) {
-                    if (exception == null) {
-                        int c = 0;
-                        for (CCRBSwipes i : result) {
-                            Log.i("SuccessRead", "Read object with ID " + i.Id);
-                            monday_swipes[c] = i.monday;
-                            c++;
-                        }
-                        submitBtn.setVisibility(View.VISIBLE);
-                        submitBtn.setEnabled(true);
-                    }else{
-                        Log.i("Azure FAIL: ", exception.toString());
-                    }
-                }
-            });
-        } catch (MobileServiceException e) {
-            e.printStackTrace();
-        }
 
         gym_spinner = (Spinner) findViewById(R.id.choosegym_spinner);
         day_spinner = (Spinner) findViewById(R.id.day_spinner);
@@ -147,40 +127,12 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
         String[][] cells = new String[50][50];
         int i = 0;
         int swipes[][] = new int[22][8];
-     
-        try {
-			CSVReader csvReader = new CSVReader(new InputStreamReader(getAssets()
-                    .open("usage.csv")));
-			String[] row = null;
-			while((row = csvReader.readNext()) != null) {
-			    for(int j = 0; j < row.length; j++){
-			    	cells[i][j] = row[j];
-			    }
-			    i++;
-			}
-			//...
-			csvReader.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        for(int x = 8; x < 27; x++){
-        	String s = "";
-        	for(int y = 1; y < 9; y++){
-        		s += "'" + cells[x][y] + "', ";
-        		swipes[x-8][y-1] = Integer.parseInt(cells[x][y]);
-        	}
-        	Log.d("MyApp", s +"\n");
-        }
         
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int position,
     		   long id) {
-    	System.out.println("location clicked");
+    	 System.out.println("location clicked");
     	
     	 Spinner spinner = (Spinner) parent;
          if(spinner.getId() == R.id.choosegym_spinner)
@@ -191,7 +143,6 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
          {
         	 day_spinner.setSelection(position);
          }
- 
    }
     
     @Override
@@ -219,9 +170,6 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
     }
     
     public void addListenerOnButton() {
-    	
-    	gym_spinner = (Spinner) findViewById(R.id.choosegym_spinner);
-    	day_spinner = (Spinner) findViewById(R.id.day_spinner);
          
         submitBtn = (Button) findViewById(R.id.submitbtn);
  
@@ -229,17 +177,110 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
  
             @Override
             public void onClick(View v) {
-            	setContentView(R.layout.fragment_landing);
+
+                try {
+                    mToDoTable.execute(new TableQueryCallback<CCRBSwipes>() {
+                        public void onCompleted(List<CCRBSwipes> result, int count,
+                                                Exception exception, ServiceFilterResponse response) {
+                            if (exception == null) {
+                                int c = 0;
+                                for (CCRBSwipes i : result) {
+                                    Log.i("SuccessRead", "Read object with ID " + i.Id);
+                                    switch(day_spinner.getSelectedItem().toString()){
+                                        case "Mon":
+                                            day_swipes[c] = i.monday;
+                                            break;
+                                        case "Tues":
+                                            day_swipes[c] = i.tuesday;
+                                            break;
+                                        case "Wed":
+                                            day_swipes[c] = i.wednesday;
+                                            break;
+                                        case "Thurs":
+                                            day_swipes[c] = i.thursday;
+                                            break;
+                                        case "Fri":
+                                            day_swipes[c] = i.friday;
+                                            break;
+                                        case "Sat":
+                                            day_swipes[c] = i.saturday;
+                                            break;
+                                        case "Sun":
+                                            day_swipes[c] = i.sunday;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    c++;
+                                }
+
+                                setContentView(R.layout.fragment_landing);
+                                //LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.BLUE, Color.YELLOW, null, null);
+
+                                DataPoint[] series1Numbers = new DataPoint[day_swipes.length/2];
+                                int maxSwipes = day_swipes[0];
+                                for(int i = 0; i < day_swipes.length/2; i++){
+                                    series1Numbers[i] = new DataPoint(5+i, day_swipes[i]);
+                                    if(day_swipes[i] > maxSwipes)
+                                        maxSwipes = day_swipes[i];
+                                }
 
 
+                                GraphView graph = (GraphView) findViewById(R.id.graph);
+                                BarGraphSeries<DataPoint> series = new BarGraphSeries<DataPoint>(series1Numbers);
+
+                                GridLabelRenderer labelRenderer = graph.getGridLabelRenderer();
+                                labelRenderer.setHorizontalAxisTitle("Hour");
+                                labelRenderer.setVerticalAxisTitle("Traffic");
+                                labelRenderer.setNumHorizontalLabels(day_swipes.length/2-5+1);
+
+                                Viewport vp = graph.getViewport();
+                                vp.setMinX(5);
+                                vp.setMaxX(day_swipes.length/2);
+                                vp.setXAxisBoundsManual(true);
+                                vp.setMinY(0);
+                                vp.setMaxY(maxSwipes);
+                                vp.setYAxisBoundsManual(true);
+
+                                graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
+                                    @Override
+                                    public String formatLabel(double value, boolean isValueX) {
+                                        if (isValueX) {
+                                            // show normal x values
+                                            String tod = "am";
+                                            if (value > 12)
+                                                tod = "pm";
+
+                                            return super.formatLabel(value % 12, isValueX) + tod;
+                                        } else {
+                                            // show currency for y values
+                                            return super.formatLabel(value, isValueX);
+                                        }
+                                    }
+                                });
+
+                                graph.setTitle("CCRB Swipes");
+                                graph.addSeries(series);
+                            }else{
+                                Log.i("Azure FAIL: ", exception.toString());
+                            }
+                        }
+                    });
+                } catch (MobileServiceException e) {
+                    e.printStackTrace();
+                    Log.i("FailRead", "Read nothing");
+                }
+
+                /*
+                setContentView(R.layout.fragment_landing);
                 //LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.BLUE, Color.YELLOW, null, null);
 
-                DataPoint[] series1Numbers = new DataPoint[monday_swipes.length];
-                int maxSwipes = monday_swipes[0];
-                for(int i = 0; i < monday_swipes.length/2; i++){
-                    series1Numbers[i] = new DataPoint(5+i, monday_swipes[i]);
-                    if(monday_swipes[i] > maxSwipes)
-                        maxSwipes = monday_swipes[i];
+                DataPoint[] series1Numbers = new DataPoint[day_swipes.length];
+                int maxSwipes = day_swipes[0];
+                for(int i = 0; i < day_swipes.length/2; i++){
+                    series1Numbers[i] = new DataPoint(5+i, day_swipes[i]);
+                    if(day_swipes[i] > maxSwipes)
+                        maxSwipes = day_swipes[i];
                 }
 
 
@@ -253,7 +294,7 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
 
                 Viewport vp = graph.getViewport();
                 vp.setMinX(5);
-                vp.setMaxX(24);
+                vp.setMaxX(14);
                 vp.setXAxisBoundsManual(true);
                 vp.setMinY(0);
                 vp.setMaxY(maxSwipes);
@@ -279,11 +320,7 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
                 graph.setTitle("CCRB Swipes");
                 graph.addSeries(series);
 
-                /*
-                staticLabelsFormatter.setHorizontalLabels(new String[] {"5am", "6am", "7am","8am", "9am", "10am","11am", "12pm", 
-                		"1pm","2pm", "3pm", "4pm","5pm", "6pm", "7pm","8pm", "9pm", "10pm","11pm"});
                 */
-
             }
  
         });

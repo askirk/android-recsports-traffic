@@ -20,10 +20,10 @@
         android:layout_alignTop="@+id/textView1"
         android:layout_marginTop="50dp"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:id="@+id/graph" />
 
 
 
 </RelativeLayout>
-<!-- From: file:/C:/Users/Austin/Desktop/recsports-android-studio/app/src/main/res/layout/fragment_landing.xml -->
+<!-- From: file:/C:/Users/Austin/Documents/GitHub/android-recsports-traffic/app/src/main/res/layout/fragment_landing.xml -->

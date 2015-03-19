@@ -2,74 +2,74 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\pre-dexed\debug\classes-185b3c9ac8dc085ad95ce18d0a0c0e54a429bdf9.jar" />
+    </item>
+    <item
         jar="C:\Users\Austin\.gradle\caches\modules-2\files-2.1\com.microsoft.azure\azure-mobile-services-android-sdk\2.0-beta\a46288e0089b8e0b784135ed7d3d2db0329fc3c5\azure-mobile-services-android-sdk-2.0-beta.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="a46288e0089b8e0b784135ed7d3d2db0329fc3c5">
-        <dex dex="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\pre-dexed\debug\azure-mobile-services-android-sdk-2.0-beta-8e28e4a5b0d91b41014938a190cdf9cabb97e734.jar" />
+        <dex dex="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\pre-dexed\debug\azure-mobile-services-android-sdk-2.0-beta-8e28e4a5b0d91b41014938a190cdf9cabb97e734.jar" />
+    </item>
+    <item
+        jar="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\libs\GraphView-4.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="20768335ab718b2a912f9155f9d1893d5fc931ce">
+        <dex dex="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\pre-dexed\debug\GraphView-4.0.0-0833834cf215693b9a2f52d7dcdca7d7d5cee355.jar" />
     </item>
     <item
         jar="C:\Users\Austin\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
-        <dex dex="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\pre-dexed\debug\gson-2.3-cf093691e1cdee6fda6da38dfb6db2f8dba6192f.jar" />
-    </item>
-    <item
-        jar="C:\Users\Austin\Desktop\recsports-android-studio\app\libs\opencsv-3.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="11986807ecb3288728bdb33a3165ce84f057d7a4">
-        <dex dex="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\pre-dexed\debug\opencsv-3.2-085800ec4a86013e5db5edfb3dc4fefa7a7ca5ba.jar" />
-    </item>
-    <item
-        jar="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\pre-dexed\debug\classes-2e3470bdd9c0acf1634833cf9346cf138ec6b775.jar" />
+        <dex dex="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\pre-dexed\debug\gson-2.3-cf093691e1cdee6fda6da38dfb6db2f8dba6192f.jar" />
     </item>
     <item
         jar="C:\Users\Austin\.gradle\caches\modules-2\files-2.1\com.androidplot\androidplot-core\0.6.1\3db0daea52375b26bfa61c59b8df93950bdefbbc\androidplot-core-0.6.1.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="3db0daea52375b26bfa61c59b8df93950bdefbbc">
-        <dex dex="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\pre-dexed\debug\androidplot-core-0.6.1-bc759a34890fa88de35da5e1c676a3eb46bf9679.jar" />
+        <dex dex="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\pre-dexed\debug\androidplot-core-0.6.1-bc759a34890fa88de35da5e1c676a3eb46bf9679.jar" />
+    </item>
+    <item
+        jar="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-070e39a49d0371bb78f8a71758453573c4f1afc7.jar" />
     </item>
     <item
         jar="C:\Users\Austin\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-0b8b2ba2f6b4fc7a42bf4a40e1c55e5f5fdabb26.jar" />
+        <dex dex="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-0b8b2ba2f6b4fc7a42bf4a40e1c55e5f5fdabb26.jar" />
     </item>
     <item
-        jar="C:\Users\Austin\Desktop\recsports-android-studio\app\libs\GraphView-4.0.0.jar"
+        jar="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\libs\opencsv-3.2.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="20768335ab718b2a912f9155f9d1893d5fc931ce">
-        <dex dex="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\pre-dexed\debug\GraphView-4.0.0-ce6dc3835e1f303d8b0eaac632c1ecccfd6ba08e.jar" />
-    </item>
-    <item
-        jar="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-ad5e9d8e7e44010e9b8a6df5cd344c8736b003ba.jar" />
-    </item>
-    <item
-        jar="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\pre-dexed\debug\classes-efd2fc9435a8ff823d6a39d48c986491ac5f4606.jar" />
+        sha1="11986807ecb3288728bdb33a3165ce84f057d7a4">
+        <dex dex="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\pre-dexed\debug\opencsv-3.2-6594cf327f8fd0e35645cd374e6acb32186c5b7b.jar" />
     </item>
     <item
         jar="C:\Users\Austin\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\18.0\cce0823396aa693798f8882e64213b1772032b09\guava-18.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="cce0823396aa693798f8882e64213b1772032b09">
-        <dex dex="C:\Users\Austin\Desktop\recsports-android-studio\app\build\intermediates\pre-dexed\debug\guava-18.0-0be44a6836a2872a5936214270e04c50df947010.jar" />
+        <dex dex="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\pre-dexed\debug\guava-18.0-0be44a6836a2872a5936214270e04c50df947010.jar" />
+    </item>
+    <item
+        jar="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\Austin\Documents\GitHub\android-recsports-traffic\app\build\intermediates\pre-dexed\debug\classes-d6abeea5c4f17be3078c52a5bd9a91be796889be.jar" />
     </item>
 
 </items>

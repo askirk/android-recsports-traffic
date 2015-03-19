@@ -4,4 +4,4 @@
     linePaint.color="#00AA00"
     vertexPaint.color="#007700"
     fillPaint.color="#00000000"
-    pointLabelFormatter.textPaint.color="#FFFFFF"/><!-- From: file:/C:/Users/Austin/Desktop/recsports-android-studio/app/src/main/res/drawable/line_point_formatter_with_plf1.xml -->
+    pointLabelFormatter.textPaint.color="#FFFFFF"/><!-- From: file:/C:/Users/Austin/Documents/GitHub/android-recsports-traffic/app/src/main/res/drawable/line_point_formatter_with_plf1.xml -->
