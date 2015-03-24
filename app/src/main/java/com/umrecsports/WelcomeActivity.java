@@ -74,4 +74,9 @@ public class WelcomeActivity extends Activity {
 		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com/umichrecsports"));
 		startActivity(browserIntent);
 	}
+
+    public void Hours(View view){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://recsports.umich.edu/hoursgrid"));
+        startActivity(browserIntent);
+    }
 }

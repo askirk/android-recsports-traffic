@@ -196,7 +196,7 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
                                         case "Wed":
                                             day_swipes[c] = i.wednesday;
                                             break;
-                                        case "Thurs":
+                                        case "Thur":
                                             day_swipes[c] = i.thursday;
                                             break;
                                         case "Fri":
@@ -217,9 +217,9 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
                                 setContentView(R.layout.fragment_landing);
                                 //LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.BLUE, Color.YELLOW, null, null);
 
-                                DataPoint[] series1Numbers = new DataPoint[day_swipes.length/2];
+                                DataPoint[] series1Numbers = new DataPoint[day_swipes.length];
                                 int maxSwipes = day_swipes[0];
-                                for(int i = 0; i < day_swipes.length/2; i++){
+                                for(int i = 0; i < day_swipes.length; i++){
                                     series1Numbers[i] = new DataPoint(5+i, day_swipes[i]);
                                     if(day_swipes[i] > maxSwipes)
                                         maxSwipes = day_swipes[i];
@@ -227,20 +227,37 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
 
 
                                 GraphView graph = (GraphView) findViewById(R.id.graph);
-                                BarGraphSeries<DataPoint> series = new BarGraphSeries<DataPoint>(series1Numbers);
+                                LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(series1Numbers);
+
+                                DataPoint[] series2Numbers = new DataPoint[2];
+                                series2Numbers[0] = new DataPoint(5, 256);
+                                series2Numbers[1] = new DataPoint(23, 256);
+                                LineGraphSeries<DataPoint> series2 = new LineGraphSeries<DataPoint>(series2Numbers);
+                                series2.setColor(Color.GREEN);
+
+                                DataPoint[] series3Numbers = new DataPoint[2];
+                                series3Numbers[0] = new DataPoint(5, 450);
+                                series3Numbers[1] = new DataPoint(23, 450);
+                                LineGraphSeries<DataPoint> series3 = new LineGraphSeries<DataPoint>(series3Numbers);
+                                series3.setColor(Color.YELLOW);
+
+                                DataPoint[] series4Numbers = new DataPoint[2];
+                                series4Numbers[0] = new DataPoint(5, 599);
+                                series4Numbers[1] = new DataPoint(23, 599);
+                                LineGraphSeries<DataPoint> series4 = new LineGraphSeries<DataPoint>(series4Numbers);
+                                series4.setColor(Color.RED);
 
                                 GridLabelRenderer labelRenderer = graph.getGridLabelRenderer();
                                 labelRenderer.setHorizontalAxisTitle("Hour");
                                 labelRenderer.setVerticalAxisTitle("Traffic");
-                                labelRenderer.setNumHorizontalLabels(day_swipes.length/2-5+1);
-
-                                Viewport vp = graph.getViewport();
-                                vp.setMinX(5);
-                                vp.setMaxX(day_swipes.length/2);
-                                vp.setXAxisBoundsManual(true);
-                                vp.setMinY(0);
-                                vp.setMaxY(maxSwipes);
-                                vp.setYAxisBoundsManual(true);
+                                labelRenderer.setNumHorizontalLabels(23-5+1);
+                                labelRenderer.setNumVerticalLabels(5);
+                                labelRenderer.setGridColor(Color.WHITE);
+                                labelRenderer.setGridStyle(GridLabelRenderer.GridStyle.VERTICAL);
+                                labelRenderer.setVerticalLabelsColor(Color.YELLOW);
+                                labelRenderer.setHorizontalLabelsColor(Color.YELLOW);
+                                labelRenderer.setHorizontalAxisTitleColor(Color.WHITE);
+                                labelRenderer.setVerticalAxisTitleColor(Color.WHITE);
 
                                 graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
                                     @Override
@@ -248,19 +265,39 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
                                         if (isValueX) {
                                             // show normal x values
                                             String tod = "am";
+                                            double val = value % 12;;
                                             if (value > 12)
                                                 tod = "pm";
-
-                                            return super.formatLabel(value % 12, isValueX) + tod;
+                                            if(value == 12){
+                                                tod = "pm";
+                                                val = 12;
+                                            }
+                                            return super.formatLabel(val, isValueX) + tod;
                                         } else {
-                                            // show currency for y values
+
                                             return super.formatLabel(value, isValueX);
                                         }
                                     }
                                 });
 
+                                Viewport vp = graph.getViewport();
+                                vp.setMinX(5);
+                                vp.setMaxX(23);
+                                vp.setXAxisBoundsManual(true);
+                                vp.setMinY(0);
+                                vp.setMaxY(maxSwipes);
+                                vp.setYAxisBoundsManual(true);
+
                                 graph.setTitle("CCRB Swipes");
+                                graph.setTitleColor(Color.YELLOW);
+                                series.setDrawDataPoints(true);
+                                series.setDataPointsRadius(8);
+                                series.setThickness(6);
                                 graph.addSeries(series);
+                                graph.addSeries(series2);
+                                graph.addSeries(series3);
+                                graph.addSeries(series4);
+
                             }else{
                                 Log.i("Azure FAIL: ", exception.toString());
                             }
@@ -270,57 +307,6 @@ public class MenuActivity extends Activity implements OnItemSelectedListener{
                     e.printStackTrace();
                     Log.i("FailRead", "Read nothing");
                 }
-
-                /*
-                setContentView(R.layout.fragment_landing);
-                //LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.BLUE, Color.YELLOW, null, null);
-
-                DataPoint[] series1Numbers = new DataPoint[day_swipes.length];
-                int maxSwipes = day_swipes[0];
-                for(int i = 0; i < day_swipes.length/2; i++){
-                    series1Numbers[i] = new DataPoint(5+i, day_swipes[i]);
-                    if(day_swipes[i] > maxSwipes)
-                        maxSwipes = day_swipes[i];
-                }
-
-
-                GraphView graph = (GraphView) findViewById(R.id.graph);
-                BarGraphSeries<DataPoint> series = new BarGraphSeries<DataPoint>(series1Numbers);
-
-                GridLabelRenderer labelRenderer = graph.getGridLabelRenderer();
-                labelRenderer.setHorizontalAxisTitle("Hour");
-                labelRenderer.setVerticalAxisTitle("Traffic");
-                labelRenderer.setNumHorizontalLabels(3);
-
-                Viewport vp = graph.getViewport();
-                vp.setMinX(5);
-                vp.setMaxX(14);
-                vp.setXAxisBoundsManual(true);
-                vp.setMinY(0);
-                vp.setMaxY(maxSwipes);
-                vp.setYAxisBoundsManual(true);
-
-                graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
-                    @Override
-                    public String formatLabel(double value, boolean isValueX) {
-                        if (isValueX) {
-                            // show normal x values
-                            String tod = "am";
-                            if (value > 12)
-                                tod = "pm";
-
-                            return super.formatLabel(value % 12, isValueX) + tod;
-                        } else {
-                            // show currency for y values
-                            return super.formatLabel(value, isValueX);
-                        }
-                    }
-                });
-
-                graph.setTitle("CCRB Swipes");
-                graph.addSeries(series);
-
-                */
             }
  
         });

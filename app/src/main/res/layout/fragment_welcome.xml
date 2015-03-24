@@ -43,14 +43,18 @@
         android:src="@drawable/share_facebook"
         android:onClick="Facebook" />
 
-    <ImageButton
+    <Button
         android:id="@+id/button1"
+        style="@style/SubmitBtn"
+        android:background="@drawable/button_submit"
+        android:text="Hours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageButton1"
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_launcher" />
+        android:onClick="Hours"
+    />
 
     <TextView
         android:id="@+id/textView1"
